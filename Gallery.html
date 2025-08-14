@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modern Image Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <h1><i class="fas fa-images"></i> Modern Gallery</h1>
+      </div>
+      <div class="nav-controls">
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Search images..." class="search-input">
+          <i class="fas fa-search search-icon"></i>
+        </div>
+        <button id="filterBtn" class="filter-btn">
+          <i class="fas fa-filter"></i> Filter
+        </button>
+      </div>
+    </nav>
+    
+    <div class="hero-section">
+      <h2>Discover Amazing Photography</h2>
+      <p>Explore our curated collection of stunning images</p>
+      <div class="stats">
+        <span><i class="fas fa-image"></i> <span id="imageCount">7</span> Images</span>
+        <span><i class="fas fa-eye"></i> <span id="viewCount">0</span> Views</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="filter-panel" id="filterPanel">
+    <div class="filter-options">
+      <label>Category:</label>
+      <select id="categoryFilter">
+        <option value="all">All Categories</option>
+        <option value="nature">Nature</option>
+        <option value="city">City</option>
+        <option value="portrait">Portrait</option>
+      </select>
+    </div>
+  </div>
+
+  <main class="gallery" id="gallery">
+    <div class="gallery-item" data-category="nature" data-views="0">
+      <img src="https://picsum.photos/id/1015/500/300" alt="Mountain Landscape" loading="lazy">
+      <div class="item-overlay">
+        <h3>Mountain Landscape</h3>
+        <p>Breathtaking mountain views</p>
+        <div class="item-actions">
+          <button class="like-btn" data-liked="false">
+            <i class="far fa-heart"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="nature" data-views="0">
+      <img src="https://picsum.photos/id/1025/500/300" alt="Forest Path" loading="lazy">
+      <div class="item-overlay">
+        <h3>Forest Path</h3>
+        <p>Peaceful forest trail</p>
+        <div class="item-actions">
+          <button class="like-btn" data-liked="false">
+            <i class="far fa-heart"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="city" data-views="0">
+      <img src="https://picsum.photos/id/1035/500/300" alt="City Skyline" loading="lazy">
+      <div class="item-overlay">
+        <h3>City Skyline</h3>
+        <p>Urban architecture</p>
+        <div class="item-actions">
+          <button class="like-btn" data-liked="false">
+            <i class="far fa-heart"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="portrait" data-views="0">
+      <img src="https://picsum.photos/id/1045/500/300" alt="Portrait Photography" loading="lazy">
+      <div class="item-overlay">
+        <h3>Portrait Photography</h3>
+        <p>Professional portrait</p>
+        <div class="item-actions">
+          <button class="like-btn" data-liked="false">
+            <i class="far fa-heart"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="nature" data-views="0">
+      <img src="https://picsum.photos/id/1055/500/300" alt="Ocean Waves" loading="lazy">
+      <div class="item-overlay">
+        <h3>Ocean Waves</h3>
+        <p>Serene ocean view</p>
+        <div class="item-actions">
+          <button class="like-btn" data-liked="false">
+            <i class="far fa-heart"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="city" data-views="0">
+      <img src="https://picsum.photos/id/1065/500/300" alt="Street Photography" loading="lazy">
+      <div class="item-overlay">
+        <h3>Street Photography</h3>
+        <p>Urban life captured</p>
+        <div class="item-actions">
+          <button class="like-btn" data-liked="false">
+            <i class="far fa-heart"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="gallery-item" data-category="portrait" data-views="0">
+      <img src="https://picsum.photos/id/1075/500/300" alt="Fashion Portrait" loading="lazy">
+      <div class="item-overlay">
+        <h3>Fashion Portrait</h3>
+        <p>Style and elegance</p>
+        <div class="item-actions">
+          <button class="like-btn" data-liked="false">
+            <i class="far fa-heart"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="lightbox" class="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <img class="lightbox-content" id="lightbox-img" />
+    <div class="lightbox-info">
+      <h3 id="lightbox-title"></h3>
+      <p id="lightbox-description"></p>
+    </div>
+    <div class="lightbox-nav">
+      <button class="nav-btn prev-btn" onclick="previousImage()">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="nav-btn next-btn" onclick="nextImage()">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3><i class="fas fa-images"></i> Modern Gallery</h3>
+        <p>Discover amazing photography from around the world</p>
+      </div>
+      <div class="footer-section">
+        <h4>Follow Us</h4>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Modern Gallery | Made with <i class="fas fa-heart"></i></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
